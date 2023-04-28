@@ -33,14 +33,14 @@ while True:
     txt_temp = str(txt)
 
     if 99 < txt < 1000 :
-        Hundreds_digit  = int(txt_temp[0])
-        tens_digit      = int(txt_temp[1])
-        ones_digit      = int(txt_temp[2])
+        Hundreds_digit  = bin(int(txt_temp[0]))
+        tens_digit      = bin(int(txt_temp[1]))
+        ones_digit      = bin(int(txt_temp[2]))
     elif 9 < txt < 99:
-        tens_digit      = int(txt_temp[0])
-        ones_digit      = int(txt_temp[1])
+        tens_digit      = bin(int(txt_temp[0]))
+        ones_digit      = bin(int(txt_temp[1]))
     elif 0 < txt < 9 :
-        ones_digit      = int(txt_temp[0])
+        ones_digit      = bin(int(txt_temp[0]))
 
     
 
