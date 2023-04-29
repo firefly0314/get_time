@@ -40,13 +40,13 @@ options.add_experimental_option('excludeSwitches', ['enable-logging'])
 options.add_argument('--headless')#実際にブラウザを表示しないオプション
 options.use_chromium = True
 loop_time = 60
-retry = 3
+retry = 2
 #mainloop
-#time_choice()#時間合わせ
-time_bool = False
+time_choice()#時間合わせ
+retry_bool = True
 while True: 
-    while not time_bool:
-        for retry_nam in range(1, retry):
+    while retry_bool:
+        for retry_nam in range(1, retry+1):
             driver = webdriver.Chrome(options=options) #ブラウザを起動する
             time.sleep(0)#起動時間待ち
             driver.get("https://napolipizzademae.com/13111056001/1004421")# ブラウザでアクセスする
@@ -60,16 +60,18 @@ while True:
             soup = None
             txt = txt[txt.find("お届け時間")+5:]#以下の２行で時間のみに加工
             txt = txt[:txt.find("分"):]
-            txt = " "
-            if txt.isdigit():#整数かどうか判断                
+            if txt.isdigit():#整数かどうか判断、整数の場合はループを抜ける                
                 retry_bool = True
+                
                 break
             else:
                 retry_bool = False
+        if retry_bool == True:
+            delivery_time = int(txt)
+            Take_out_time = delivery_time-10 #テイクアウト時間算出
+            print (datetime.datetime.now().strftime("%H:%M:%S"),Take_out_time,delivery_time)
+        else:
+            print (datetime.datetime.now().strftime("%H:%M:%S")+"can't get time!")
 
-    
-    txt = int(txt)
-    txt = txt-10 #テイクアウト時間算出
-    retry_nam = 0
-    print (datetime.datetime.now(),txt)
+        retry_nam = 1
     time.sleep(loop_time-2)
