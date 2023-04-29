@@ -42,23 +42,25 @@ options.use_chromium = True
 loop_time = 60
 retry = 3
 #mainloop
-time_choice()#時間合わせ
+#time_choice()#時間合わせ
 time_bool = False
 while True: 
     while not time_bool:
-        for retry_nam in range(0, retry):
+        for retry_nam in range(1, retry):
             driver = webdriver.Chrome(options=options) #ブラウザを起動する
-            time.sleep(1)#起動時間待ち
+            time.sleep(0)#起動時間待ち
             driver.get("https://napolipizzademae.com/13111056001/1004421")# ブラウザでアクセスする
-            time.sleep(1)#処理待ち
+            time.sleep(0)#処理待ち
             html = driver.page_source
             driver.close()#ウェブページを閉じる
-            
+            driver = None
             soup = BeautifulSoup(html, "html.parser") # BeautifulSoupで扱えるようにパースします
+            html = None
             txt = soup.text#テキストデータのみ抽出
+            soup = None
             txt = txt[txt.find("お届け時間")+5:]#以下の２行で時間のみに加工
             txt = txt[:txt.find("分"):]
-
+            txt = " "
             if txt.isdigit():#整数かどうか判断                
                 retry_bool = True
                 break
@@ -66,8 +68,8 @@ while True:
                 retry_bool = False
 
     
-        txt = int(txt)
-        txt = txt-10 #テイクアウト時間算出
-        retry_nam = 0
-        print (datetime.datetime.now(),txt)
-        time.sleep(loop_time-2)
+    txt = int(txt)
+    txt = txt-10 #テイクアウト時間算出
+    retry_nam = 0
+    print (datetime.datetime.now(),txt)
+    time.sleep(loop_time-2)
