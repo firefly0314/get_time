@@ -74,4 +74,4 @@ while True:
             print (datetime.datetime.now().strftime("%H:%M:%S")+" can't get time!")
 
         retry_nam = 1
-    time.sleep(loop_time-2)
+        time.sleep(loop_time-2)
