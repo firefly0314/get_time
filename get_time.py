@@ -6,7 +6,7 @@ import time
 import datetime
 
 
-def time_choice():
+def time_adjustment():
     time_bool = False
     while not time_bool:
         time_now = datetime.datetime.now().minute
@@ -39,10 +39,10 @@ options = Options()
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
 options.add_argument('--headless')#実際にブラウザを表示しないオプション
 options.use_chromium = True
-loop_time = 60
+loop_time = 600
 retry = 2
 #mainloop
-time_choice()#時間合わせ
+time_adjustment()#時間合わせ
 retry_bool = True
 while True: 
     while retry_bool:
@@ -61,15 +61,14 @@ while True:
             txt = txt[txt.find("お届け時間")+5:]#以下の２行で時間のみに加工
             txt = txt[:txt.find("分"):]
             if txt.isdigit():#整数かどうか判断、整数の場合はループを抜ける                
-                retry_bool = True
-                
+                retry_bool = True               
                 break
             else:
                 retry_bool = False
         if retry_bool == True:
             delivery_time = int(txt)
             Take_out_time = delivery_time-10 #テイクアウト時間算出
-            print (datetime.datetime.now().strftime("%H:%M:%S"),Take_out_time,delivery_time)
+            print (datetime.datetime.now().strftime("%H:%M:%S"),"Take_out",Take_out_time,"delivery time",delivery_time)
         else:
             print (datetime.datetime.now().strftime("%H:%M:%S")+" can't get time!")
 
