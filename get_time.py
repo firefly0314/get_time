@@ -47,6 +47,7 @@ retry_bool = True
 while True: 
     while retry_bool:
         for retry_nam in range(1, retry+1):
+            time_adjustment()#時間合わせ
             driver = webdriver.Chrome(options=options) #ブラウザを起動する
             time.sleep(1)#起動時間待ち
             driver.get("https://napolipizzademae.com/13111056001/1004421")# ブラウザでアクセスする
@@ -68,9 +69,9 @@ while True:
         if retry_bool == True:
             delivery_time = int(txt)
             Take_out_time = delivery_time-10 #テイクアウト時間算出
-            print (datetime.datetime.now().strftime("%H:%M:%S"),"Take_out",Take_out_time,"delivery time",delivery_time)
+            print (datetime.datetime.now().strftime("%H:%M:%S"),"Take-out ",Take_out_time,"delivery ",delivery_time)
         else:
             print (datetime.datetime.now().strftime("%H:%M:%S")+" can't get time!")
 
         retry_nam = 1
-        time.sleep(loop_time-2)
+        time.sleep(loop_time-62)
