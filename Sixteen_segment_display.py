@@ -149,12 +149,13 @@ def Sixteen_segment_display(str_in):
         seg_deta= [1,1,1,1,1,1,1,1,0,0,1,0,1,1,0,1,0]
 
 def str_slice(str_in):
-    str_out=[]
-    for i in range(len(str_in)):
+    global byte_list
+    byte_list=[]
+    for i in range(0,len(str_in),1):
         str_temp = str_in[i:i+1]
-        #Sixteen_segment_display(str_temp)
-        str_out.append( Sixteen_segment_display(str_temp))
-        return str_out
+        byte_list+=Sixteen_segment_display(str_temp)
+        print(str_temp)
+    return byte_list
 
 
 n=str_slice("PIZA")
