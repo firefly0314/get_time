@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import time
 import datetime
+import Sixteen_segment_display
 
 
 def time_adjustment():
@@ -20,19 +21,6 @@ def time_adjustment():
                     time_bool = False
                     time.sleep(1)
 
-def bcd(txt):#bcdコードに変換
-    txt_temp = str(txt)
-    if 99 < txt < 1000 : #3桁の場合
-        Hundreds_digit  = int(txt_temp[0])
-        tens_digit      = int(txt_temp[1])
-        ones_digit      = int(txt_temp[2])
-    elif 9 < txt < 99:  #2桁の場合
-        tens_digit      = int(txt_temp[0])
-        ones_digit      = int(txt_temp[1])
-    elif 0 < txt < 9 :  #１桁の場合
-        nes_digit      = int(txt_temp[0])
-    else:
-        return 
 
 #変数とオプション
 options = Options()
@@ -70,6 +58,8 @@ while True:
             delivery_time = int(txt)
             Take_out_time = delivery_time-10 #テイクアウト時間算出
             print (datetime.datetime.now().strftime("%H:%M:%S"),"Take-out ",Take_out_time,"delivery ",delivery_time)
+            Sixteen_segment_deta= Sixteen_segment_display.str_to_Sixteen_segment_display(str(Take_out_time))
+            print(Sixteen_segment_deta)
         else:
             print (datetime.datetime.now().strftime("%H:%M:%S")+" can't get time!")
 

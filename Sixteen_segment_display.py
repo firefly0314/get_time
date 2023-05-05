@@ -148,7 +148,7 @@ def Sixteen_segment_display(str_in):
     else:
         seg_deta= [1,1,1,1,1,1,1,1,0,0,1,0,1,1,0,1,0]
 
-def str_slice(str_in):
+def str_to_Sixteen_segment_display(str_in):
     global byte_list
     byte_list=[]
     for i in range(0,len(str_in),1):
@@ -157,6 +157,3 @@ def str_slice(str_in):
         print(str_temp)
     return byte_list
 
-
-n=str_slice("PIZA")
-print(n)
