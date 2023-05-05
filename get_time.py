@@ -1,10 +1,12 @@
 # coding: UTF-8
+import datetime
+import time
+
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-import time
-import datetime
-import Sixteen_segment_display
+
+import Sixteen_segment_display as SSD
 
 
 def time_adjustment():
@@ -58,7 +60,7 @@ while True:
             delivery_time = int(txt)
             Take_out_time = delivery_time-10 #テイクアウト時間算出
             print (datetime.datetime.now().strftime("%H:%M:%S"),"Take-out ",Take_out_time,"delivery ",delivery_time)
-            Sixteen_segment_deta= Sixteen_segment_display.str_to_Sixteen_segment_display(str(Take_out_time))
+            Sixteen_segment_deta= SSD.str_to_Sixteen_segment_display(str(Take_out_time))
             print(Sixteen_segment_deta)
         else:
             print (datetime.datetime.now().strftime("%H:%M:%S")+" can't get time!")
