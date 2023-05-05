@@ -148,7 +148,7 @@ def Sixteen_segment_display(str_in):
     else:
         seg_deta= [1,1,1,1,1,1,1,1,0,0,1,0,1,1,0,1,0]
 
-def str_slice(str_in):
+def str_to_Sixteen_segment_display(str_in):
     str_out=[]
     for i in range(len(str_in)):
         str_temp = str_in[i:i+1]
@@ -156,6 +156,3 @@ def str_slice(str_in):
         str_out.append( Sixteen_segment_display(str_temp))
         return str_out
 
-
-n=str_slice("PIZA")
-print(n)
