@@ -6,7 +6,7 @@
     "configurations": [
         {
             "python.analysis.extraPaths": [
-                "Sixteen_segment_display.py",
+                "Sixteen_segment_display.py","time_adjustment.py"
             ],
             "name": "Python: 現在のファイル",
             "type": "python",
