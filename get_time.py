@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-import Sixteen_segment_display as SSD
+import lib.Sixteen_segment_display as SSD
 
 
 def time_adjustment():
@@ -71,7 +71,7 @@ while True:
             logging.info(datetime.datetime.now().strftime("%H:%M:%S"),":Sixteen_segment_deta processing")
             print(Sixteen_segment_deta)
         else:
-            
+
             print (datetime.datetime.now().strftime("%H:%M:%S")+" can't get time!")
 
         retry_nam = 1
