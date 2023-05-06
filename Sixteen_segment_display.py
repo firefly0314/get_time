@@ -154,5 +154,5 @@ def str_to_Sixteen_segment_display(str_in):
         str_temp = str_in[i:i+1]
         #Sixteen_segment_display(str_temp)
         str_out.append( Sixteen_segment_display(str_temp))
-        return str_out
+    return str_out
 
