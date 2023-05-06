@@ -8,6 +8,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 import lib.Sixteen_segment_display as SSD
+import lib.time_adjustment
 #変数とオプション
 options = Options()
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
