@@ -63,6 +63,7 @@ while True:
             Sixteen_segment_deta= SSD.str_to_Sixteen_segment_display(str(Take_out_time))
             print(Sixteen_segment_deta)
         else:
+            
             print (datetime.datetime.now().strftime("%H:%M:%S")+" can't get time!")
 
         retry_nam = 1
