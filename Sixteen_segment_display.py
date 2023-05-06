@@ -154,6 +154,5 @@ def str_to_Sixteen_segment_display(str_in):
     for i in range(0,len(str_in),1):
         str_temp = str_in[i:i+1]
         byte_list+=Sixteen_segment_display(str_temp)
-        print(str_temp)
     return byte_list
 
