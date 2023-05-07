@@ -51,6 +51,7 @@ while True:
             Take_out_time = delivery_time-10 #テイクアウト時間算出
             logging.debug(datetime.datetime.now().strftime("%H:%M:%S"),":Take_out_time processing")
             logging.info  (datetime.datetime.now().strftime("%H:%M:%S"),"Take-out ",Take_out_time,"delivery ",delivery_time)
+            print (datetime.datetime.now().strftime("%H:%M:%S"),"Take-out ",Take_out_time,"delivery ",delivery_time)
             Sixteen_segment_deta= SSD.str_to_Sixteen_segment_display(str(Take_out_time))
             logging.debug(datetime.datetime.now().strftime("%H:%M:%S"),":Sixteen_segment_deta processing")
             logging.debug(Sixteen_segment_deta)
