@@ -17,12 +17,12 @@ options.use_chromium = True
 loop_time = 600
 retry = 2
 #mainloop
-time_adjustment()#時間合わせ
+lib.time_adjustment.time_adjustment()#時間合わせ
 retry_bool = True
 while True: 
     while retry_bool:
         for retry_nam in range(1, retry+1):
-            time_adjustment()#時間合わせ
+            lib.time_adjustment.time_adjustment()#時間合わせ
             logging.debug(datetime.datetime.now().strftime("%H:%M:%S"),":get web source start")
             driver = webdriver.Chrome(options=options) #ブラウザを起動する
             time.sleep(1)#起動時間待ち
