@@ -17,6 +17,8 @@ options.use_chromium = True
 loop_time = 600
 retry = 2
 #mainloop
+logging.basicConfig(filename='get_time.log', encoding='utf-8', level=logging.DEBUG)
+
 lib.time_adjustment.time_adjustment()#時間合わせ
 retry_bool = True
 while True: 
