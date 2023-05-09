@@ -52,7 +52,7 @@ while True:
                 retry_bool = False
         if retry_bool == True:
             delivery_time = int(txt)
-            Take_out_time = (delivery_time/2)-5 #テイクアウト時間算出
+            Take_out_time = int((delivery_time/2)-5) #テイクアウト時間算出
             if Take_out_time < 10:#10分以下なら10分に強制書き換え
                 Take_out_time = 10
                 logging.info("forced rewrite")

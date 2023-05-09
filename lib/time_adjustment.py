@@ -16,5 +16,10 @@ def time_adjustment():
                     time.sleep(1)
     return
 
-def time_adjustmentV2():
+def time_adjustmentV2(mini):
     time_now = datetime.datetime.now().minute
+    Next_time=-(-time_now // mini) * mini
+    print(Next_time)
+    sleep_sec = (Next_time*60)-(time_now*60)
+    print(sleep_sec)
+    time.sleep(sleep_sec)
