@@ -15,3 +15,6 @@ def time_adjustment():
                     time_bool = False
                     time.sleep(1)
     return
+
+def time_adjustmentV2():
+    time_now = datetime.datetime.now().minute

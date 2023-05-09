@@ -52,9 +52,15 @@ while True:
                 retry_bool = False
         if retry_bool == True:
             delivery_time = int(txt)
-            Take_out_time = delivery_time-10 #テイクアウト時間算出
+            Take_out_time = (delivery_time/2)-5 #テイクアウト時間算出
+            if Take_out_time < 10:#10分以下なら10分に強制書き換え
+                Take_out_time = 10
+                logging.info("forced rewrite")
+            else:
+                pass
             logging.info("Take_out_time processing")
-            logging.info  ("Take-out ",Take_out_time,"delivery ",delivery_time)
+            log="Take-out="+str(Take_out_time)+" delivery="+str(delivery_time)
+            logging.info(log)
             print (datetime.datetime.now().strftime("%H:%M:%S"),"Take-out ",Take_out_time,"delivery ",delivery_time)
             Sixteen_segment_deta= SSD.str_to_Sixteen_segment_display(str(Take_out_time))
             logging.info("Sixteen_segment_deta processing")
