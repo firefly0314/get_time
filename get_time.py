@@ -15,18 +15,18 @@ options = Options()
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
 options.add_argument('--headless')#実際にブラウザを表示しないオプション
 options.use_chromium = True
-loop_time = 600
+loop_time = 5
 retry = 2
 logging.config.fileConfig('logging.conf')
 #mainloop
 logging.basicConfig(filename='get_time.log', encoding='utf-8', level=logging.INFO)
 logging.info(":START_Program")
-lib.time_adjustment.time_adjustment()#時間合わせ
+#lib.time_adjustment.time_adjustmentV2(loop_time)#時間合わせ
 retry_bool = True
 while True: 
     while retry_bool:
         for retry_nam in range(1, retry+1):
-            lib.time_adjustment.time_adjustment()#時間合わせ
+            lib.time_adjustment.time_adjustmentV2(loop_time)#時間合わせ
             logging.info("get web source start")
             driver = webdriver.Chrome(options=options) #ブラウザを起動する
             time.sleep(1)#起動時間待ち

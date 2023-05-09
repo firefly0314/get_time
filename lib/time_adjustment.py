@@ -1,5 +1,6 @@
 import datetime 
 import time
+import logging
 
 def time_adjustment():
     time_bool = False
@@ -17,9 +18,11 @@ def time_adjustment():
     return
 
 def time_adjustmentV2(mini):
-    time_now = datetime.datetime.now().minute
+    mini=mini*60
+    time_now = ((datetime.datetime.now().minute)*60)+((datetime.datetime.now().second))
     Next_time=-(-time_now // mini) * mini
     print(Next_time)
-    sleep_sec = (Next_time*60)-(time_now*60)
-    print(sleep_sec)
+    sleep_sec = (Next_time)-(time_now)
+    log="sleep_sec "+str(sleep_sec)
+    logging.info(log)
     time.sleep(sleep_sec)

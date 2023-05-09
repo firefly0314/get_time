@@ -1,11 +1,4 @@
+import lib.time_adjustment as time_adjustment
 import datetime
-import time
-
-
-def time_adjustment():
-    sleep_sec=datetime.datetime.now().time() 
-    return sleep_sec
-
-
-time_difference=time_adjustment
-print(time_difference)
+time_adjustment.time_adjustmentV2(5)
+print(datetime.datetime.now())
