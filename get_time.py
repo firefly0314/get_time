@@ -1,6 +1,7 @@
 # coding: UTF-8
 import datetime
 import logging
+import logging.config
 import time
 
 from bs4 import BeautifulSoup
@@ -16,33 +17,34 @@ options.add_argument('--headless')#実際にブラウザを表示しないオプ
 options.use_chromium = True
 loop_time = 600
 retry = 2
+logging.config.fileConfig('logging.conf')
 #mainloop
-logging.basicConfig(filename='get_time.log', encoding='utf-8', level=logging.DEBUG)
-
+logging.basicConfig(filename='get_time.log', encoding='utf-8', level=logging.INFO)
+logging.info(":START_Program")
 lib.time_adjustment.time_adjustment()#時間合わせ
 retry_bool = True
 while True: 
     while retry_bool:
         for retry_nam in range(1, retry+1):
             lib.time_adjustment.time_adjustment()#時間合わせ
-            logging.debug(datetime.datetime.now().strftime("%H:%M:%S"),":get web source start")
+            logging.info("get web source start")
             driver = webdriver.Chrome(options=options) #ブラウザを起動する
             time.sleep(1)#起動時間待ち
             driver.get("https://napolipizzademae.com/13111056001/1004421")# ブラウザでアクセスする
             time.sleep(1)#処理待ち
             html = driver.page_source
             driver.close()#ウェブページを閉じる
-            logging.debug(datetime.datetime.now().strftime("%H:%M:%S"),":web access end")
+            logging.info("web access end")
             driver = None
             soup = BeautifulSoup(html, "html.parser") # BeautifulSoupで扱えるようにパースします
             html = None
-            logging.debug(datetime.datetime.now().strftime("%H:%M:%S"),":html parse")
+            logging.info("html parse")
             txt = soup.text#テキストデータのみ抽出
-            logging.debug(datetime.datetime.now().strftime("%H:%M:%S"),":html to str")
+            logging.info("html to str")
             soup = None
             txt = txt[txt.find("お届け時間")+5:]#以下の２行で時間のみに加工
             txt = txt[:txt.find("分"):]
-            logging.debug(datetime.datetime.now().strftime("%H:%M:%S"),":str processing")
+            logging.info("str processing")
             if txt.isdigit():#整数かどうか判断、整数の場合はループを抜ける                
                 retry_bool = True               
                 break
@@ -51,11 +53,11 @@ while True:
         if retry_bool == True:
             delivery_time = int(txt)
             Take_out_time = delivery_time-10 #テイクアウト時間算出
-            logging.debug(datetime.datetime.now().strftime("%H:%M:%S"),":Take_out_time processing")
-            logging.info  (datetime.datetime.now().strftime("%H:%M:%S"),"Take-out ",Take_out_time,"delivery ",delivery_time)
+            logging.info("Take_out_time processing")
+            logging.info  ("Take-out ",Take_out_time,"delivery ",delivery_time)
             print (datetime.datetime.now().strftime("%H:%M:%S"),"Take-out ",Take_out_time,"delivery ",delivery_time)
             Sixteen_segment_deta= SSD.str_to_Sixteen_segment_display(str(Take_out_time))
-            logging.debug(datetime.datetime.now().strftime("%H:%M:%S"),":Sixteen_segment_deta processing")
+            logging.info("Sixteen_segment_deta processing")
             logging.debug(Sixteen_segment_deta)
         else:
 
