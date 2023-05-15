@@ -4,13 +4,6 @@
 
   (paper "A4")
 
-  (title_block
-    (title "16seg")
-    (date "2023-05-10")
-    (rev "0.5")
-    (company "takmasa kawauchi")
-  )
-
   (lib_symbols
     (symbol "Device:R" (pin_numbers hide) (pin_names (offset 0)) (in_bom yes) (on_board yes)
       (property "Reference" "R" (at 2.032 0 90)
@@ -3978,23 +3971,6 @@
         (path "/2515ff4f-1146-445d-89d3-fd4cff0f8a99"
           (reference "R25") (unit 1)
         )
-      )
-    )
-  )
-
-  (sheet (at 20.32 19.05) (size 53.34 10.16) (fields_autoplaced)
-    (stroke (width 0.1524) (type solid))
-    (fill (color 0 0 0 0.0000))
-    (uuid b34d751d-70bb-40b6-a3c1-3d34ef9fbec2)
-    (property "Sheetname" "led_array" (at 20.32 18.3384 0) (show_name)
-      (effects (font (size 1.27 1.27)) (justify left bottom))
-    )
-    (property "Sheetfile" "led_array.kicad_sch" (at 20.32 29.7946 0)
-      (effects (font (size 1.27 1.27)) (justify left top))
-    )
-    (instances
-      (project "16seg"
-        (path "/2515ff4f-1146-445d-89d3-fd4cff0f8a99" (page "2"))
       )
     )
   )

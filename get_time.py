@@ -15,7 +15,7 @@ options = Options()
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
 options.add_argument('--headless')#実際にブラウザを表示しないオプション
 options.use_chromium = True
-loop_time = 1
+loop_time = 10
 retry = 2
 logging.config.fileConfig('logging.conf')
 #mainloop
@@ -70,6 +70,6 @@ while True:
             logging.debug(Sixteen_segment_deta)
         else:
 
-            logging.info (datetime.datetime.now().strftime("%H:%M:%S")+" can't get time!")
+            logging.info ("can't get time!")
 
         retry_nam = 1
