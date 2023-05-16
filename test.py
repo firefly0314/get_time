@@ -1,5 +1,5 @@
-import lib.time_adjustment as time_adjustment
-import datetime
-print(datetime.datetime.now())
-time_adjustment.time_adjustmentV2(1)
-print(datetime.datetime.now())
+import tomllib
+
+with open('mein_setting.toml', 'rb') as f:
+    settings = tomllib.load(f)
+print(settings)

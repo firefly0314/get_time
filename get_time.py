@@ -3,6 +3,7 @@ import datetime
 import logging
 import logging.config
 import time
+import tomllib
 
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -10,6 +11,7 @@ from selenium.webdriver.chrome.options import Options
 
 import lib.Sixteen_segment_display as SSD
 import lib.time_adjustment
+
 #変数とオプション
 options = Options()
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
@@ -18,6 +20,14 @@ options.use_chromium = True
 loop_time = 10
 retry = 2
 logging.config.fileConfig('logging.conf')
+
+#tomlから変更点を書き込み
+with open('mein_setting.toml', 'rb') as f:
+    settings = tomllib.load(f)
+
+loop_time = settings["loop_time"]
+retry = settings["web_get_retry"]
+URL = settings["napoli_URL"]
 #mainloop
 logging.basicConfig(filename='get_time.log', encoding='utf-8', level=logging.INFO)
 logging.info(":START_Program")
@@ -29,7 +39,7 @@ while True:
             logging.info("get web source start")
             driver = webdriver.Chrome(options=options) #ブラウザを起動する
             time.sleep(1)#起動時間待ち
-            driver.get("https://napolipizzademae.com/13111056001/1004421")# ブラウザでアクセスする
+            driver.get(URL)# ブラウザでアクセスする
             time.sleep(1)#処理待ち
             html = driver.page_source
             driver.close()#ウェブページを閉じる
