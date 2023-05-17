@@ -38,19 +38,16 @@ while True:
             lib.time_adjustment.time_adjustmentV2(loop_time)#時間合わせ
             logging.info("get web source start")
             driver = webdriver.Chrome(options=options) #ブラウザを起動する
-            time.sleep(1)#起動時間待ち
+            #time.sleep(1)#起動時間待ち
             driver.get(URL)# ブラウザでアクセスする
-            time.sleep(1)#処理待ち
+            #time.sleep(1)#処理待ち
             html = driver.page_source
             driver.close()#ウェブページを閉じる
             logging.info("web access end")
-            driver = None
-            soup = BeautifulSoup(html, "html.parser") # BeautifulSoupで扱えるようにパースします
-            html = None
+            soup = BeautifulSoup(html, "html.parser") # BeautifulSoupで扱えるようにパースします        
             logging.info("html parse")
             txt = soup.text#テキストデータのみ抽出
-            logging.info("html to str")
-            soup = None
+            logging.info("html to str")         
             logging.info("str processing")
             txt = txt[txt.find("お届け時間")+5:]#以下の２行で時間のみに加工
             txt = txt[:txt.find("分"):]
@@ -61,6 +58,9 @@ while True:
             else:
                 retry_bool = False
                 logging.warning("html check NG retry")
+            soup = None
+            html = None
+            driver = None
         
         #ここからが数値処理
 
@@ -79,7 +79,6 @@ while True:
             logging.info("Sixteen_segment_deta processing")
             logging.debug(Sixteen_segment_deta)
         else:
-
             logging.info ("can't get time!")
 
-        retry_nam = 1
+        retry_nam = 0
