@@ -12,7 +12,7 @@
         "copper_text_upright": false,
         "courtyard_line_width": 0.049999999999999996,
         "dimension_precision": 4,
-        "dimension_units": 2,
+        "dimension_units": 3,
         "dimensions": {
           "arrow_length": 1270000,
           "extension_offset": 500000,
@@ -38,23 +38,17 @@
           "height": 2.1,
           "width": 2.1
         },
-        "silk_line_width": 0.09999999999999999,
+        "silk_line_width": 0.15,
         "silk_text_italic": false,
-        "silk_text_size_h": 0.6,
-        "silk_text_size_v": 0.6,
-        "silk_text_thickness": 0.6,
+        "silk_text_size_h": 1.0,
+        "silk_text_size_v": 1.0,
+        "silk_text_thickness": 0.15,
         "silk_text_upright": false,
         "zones": {
           "min_clearance": 0.5
         }
       },
-      "diff_pair_dimensions": [
-        {
-          "gap": 0.0,
-          "via_gap": 0.0,
-          "width": 0.0
-        }
-      ],
+      "diff_pair_dimensions": [],
       "drc_exclusions": [],
       "meta": {
         "version": 2
@@ -111,10 +105,10 @@
       },
       "rules": {
         "max_error": 0.005,
-        "min_clearance": 0.15239999999999998,
+        "min_clearance": 0.0,
         "min_connection": 0.0,
-        "min_copper_edge_clearance": 0.3,
-        "min_hole_clearance": 0.30479999999999996,
+        "min_copper_edge_clearance": 0.0,
+        "min_hole_clearance": 0.25,
         "min_hole_to_hole": 0.25,
         "min_microvia_diameter": 0.19999999999999998,
         "min_microvia_drill": 0.09999999999999999,
@@ -123,9 +117,9 @@
         "min_text_height": 0.7999999999999999,
         "min_text_thickness": 0.08,
         "min_through_hole_diameter": 0.3,
-        "min_track_width": 0.15239999999999998,
-        "min_via_annular_width": 0.15,
-        "min_via_diameter": 0.3,
+        "min_track_width": 0.0,
+        "min_via_annular_width": 0.09999999999999999,
+        "min_via_diameter": 0.5,
         "solder_mask_clearance": 0.0,
         "solder_mask_min_width": 0.0,
         "solder_mask_to_copper_clearance": 0.0,
@@ -171,20 +165,8 @@
           "td_width_to_size_filter_ratio": 0.9
         }
       ],
-      "track_widths": [
-        0.0,
-        0.1524
-      ],
-      "via_dimensions": [
-        {
-          "diameter": 0.0,
-          "drill": 0.0
-        },
-        {
-          "diameter": 0.9,
-          "drill": 0.3
-        }
-      ],
+      "track_widths": [],
+      "via_dimensions": [],
       "zones_allow_external_fillets": false
     },
     "layer_presets": [],

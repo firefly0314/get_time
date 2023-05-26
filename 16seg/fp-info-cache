@@ -1,4 +1,4 @@
-21667139260605829
+21672191059291946
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -60773,6 +60773,13 @@ Yellow 5381 Series LED
 0
 2
 2
+Library
+16seg
+
+
+0
+20
+20
 Module
 A20_OLINUXINO_LIME2
 A20 Olinuxino LIME2, 1.2GHz, 512-1024MB RAM, Micro-SD, NAND or eMMC, 1000Mbit Ethernet
@@ -83019,6 +83026,20 @@ rotary encoder
 0
 7
 6
+SamacSys_Parts
+NE555DR
+D (R-PDSO-G8)
+Integrated Circuit
+0
+8
+8
+SamacSys_Parts
+SOD3716X135N
+SOD-123 CASE425-04 ISSUE G
+Diode
+0
+2
+2
 Sensor
 Aosong_DHT11_5.5x12.0_P2.54mm
 Temperature and humidity module, http://akizukidenshi.com/download/ds/aosong/DHT11.pdf
